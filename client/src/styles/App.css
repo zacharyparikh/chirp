@@ -14,7 +14,7 @@
 } */
 
 .App-header {
-  background-color: #282c34;
+  background-color: #ffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,7 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   font-family: 'Signika Negative', sans-serif;
-  color: white;
+  color: black;
 }
 
 .App-link {
