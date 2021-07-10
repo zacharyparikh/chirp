@@ -5,7 +5,6 @@ import mongoose from 'mongoose';
 const app = express();
 const PORT = 4000;
 
-
 app.use(cors());
 
 app.get('/', (req, res) => {
@@ -14,7 +13,8 @@ app.get('/', (req, res) => {
 
 // connect to db
 mongoose.connect("mongodb://127.0.0.1:27017/accounts", {
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 const db = mongoose.connection;
@@ -50,19 +50,6 @@ userSchema.methods.greetUser = function (this: User) {
 }
 
 const userModel = mongoose.model<User>('User', userSchema);
-
-const alice = new userModel({
-  name: 'Alice', 
-  age: 30, 
-  password: 'password', 
-  email: 'alice@wonderland.com'
-});
-alice.greetUser();
-console.log(alice.name);
-alice.greetUser();
-alice.save()
-
- 
 
 // run().catch(err => console.log(err));
 
