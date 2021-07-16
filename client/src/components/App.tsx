@@ -1,39 +1,57 @@
 import { SignUp } from './SignUp';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from 'react-router-dom';
 import { Home } from './Home';
 import { Login } from './Login';
+import { AppBar, IconButton, Typography } from '@material-ui/core';
+import { Menu as MenuIcon } from '@material-ui/icons';
 
 function App() {
   return (
-    <Router>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/user">Users</Link>
-          </li>
+    <div>
+      <AppBar>
+        <IconButton>
+          <MenuIcon />
+        </IconButton>
 
-          <li>
-            <Link to="/signup">Sign Up</Link>
-          </li>
+        <Typography>Chirp</Typography>
+      </AppBar>
 
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-        </ul>
-      </nav>
+      <Router>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/user">Users</Link>
+            </li>
 
-      <Switch>
-        <Route path="/signup">
-          <SignUp />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </Router>
+            <li>
+              <Link to="/signup">Sign Up</Link>
+            </li>
+
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Switch>
+          <Route path="/signup">
+            <SignUp />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/">
+            <Redirect to="/login" />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
   );
 }
 

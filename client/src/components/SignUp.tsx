@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-async function postData(url: string, data: object) {
+async function postData(url: string, data: any) {
   const response = await fetch(url, {
     method: 'POST',
     headers: {
@@ -49,10 +49,6 @@ async function postData(url: string, data: object) {
 
 export const SignUp: React.FunctionComponent = () => {
   const classes = useStyles();
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -149,8 +145,6 @@ export const SignUp: React.FunctionComponent = () => {
                   </Link>
                 </Grid>
               </Grid>
-
-              <pre>{JSON.stringify(values, null, 2)}</pre>
             </Form>
           )}
         </Formik>
