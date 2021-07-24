@@ -17,7 +17,7 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "@tsconfig/node14": "^1.0.0",
+    "@tsconfig/node16": "^1.0.0",
     "@types/cors": "^2.8.10",
     "@types/express": "^4.17.11",
     "@types/mongoose": "^5.11.97",

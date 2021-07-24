@@ -1,4 +1,3 @@
-import { SignUp } from './SignUp';
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,21 +5,57 @@ import {
   Link,
   Redirect,
 } from 'react-router-dom';
-import { Home } from './Home';
-import { Login } from './Login';
-import { AppBar, IconButton, Typography } from '@material-ui/core';
+
+import {
+  AppBar,
+  createStyles,
+  IconButton,
+  makeStyles,
+  Theme,
+  Toolbar,
+  Typography,
+} from '@material-ui/core';
+
 import { Menu as MenuIcon } from '@material-ui/icons';
 
+import { SignUp } from './SignUp';
+import { Login } from './Login';
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+    },
+    menuButton: {
+      marginRight: theme.spacing(2),
+    },
+    title: {
+      flexGrow: 1,
+    },
+  })
+);
+
 function App() {
+  const classes = useStyles();
+
   return (
     <div>
-      <AppBar>
-        <IconButton>
-          <MenuIcon />
-        </IconButton>
-
-        <Typography>Chirp</Typography>
-      </AppBar>
+      <div className={classes.root}>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              aria-label="menu"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" className={classes.title}>
+              Chirp
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </div>
 
       <Router>
         <nav>
